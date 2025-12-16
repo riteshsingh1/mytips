@@ -57,7 +57,7 @@
           </div>
 
           <div class="meta" style="margin-top:12px">Support email: <a href="mailto:hello@imritesh.com" style="color:var(--accent)">hello@imritesh.com</a></div>
-          <div class="meta">Privacy: <a href="/privacy.html" style="color:var(--accent)">Privacy Policy</a></div>
+          <div class="meta">Legal: <a href="/privacy.html" style="color:var(--accent)">Privacy Policy</a> | <a href="/terms.html" style="color:var(--accent)">Terms & Conditions</a></div>
 
         </div>
 
@@ -112,7 +112,9 @@
       </section>
 
       <footer>
-        © MyTips — <span id="appVersion">App version: unknown</span>
+        © MyTips — <span id="appVersion">App version: unknown</span><br>
+        <a href="/privacy.html" style="color:var(--muted);text-decoration:none;margin:0 8px">Privacy Policy</a> | 
+        <a href="/terms.html" style="color:var(--muted);text-decoration:none;margin:0 8px">Terms & Conditions</a>
       </footer>
     </main>
   </div>
@@ -152,11 +154,6 @@
       const subject = `Support from ${form.name.value || 'User'} — MyTips ${version}`;
       const body = `Device: ${navigator.userAgent}\nApp version: ${version}\nEmail: ${form.email.value}\n\n${form.message.value}`;
       location.href = buildMailto(email, subject, body);
-    });
-
-    document.getElementById('copyDebug').addEventListener('click', ()=>{
-      const txt = `Device: ${navigator.userAgent}\nApp version: ${version}`;
-      navigator.clipboard.writeText(txt).then(()=>alert('Device info copied'));
     });
 
     document.getElementById('openFAQ').addEventListener('click', ()=>{
