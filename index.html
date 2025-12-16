@@ -1,17 +1,175 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>MyTips Support</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MyTips — Support</title>
+  <meta name="description" content="Support page for MyTips app — contact, FAQ, troubleshooting and privacy information." />
+  <style>
+    :root{--bg:#0f1724;--card:#0b1220;--accent:#6ee7b7;--muted:#9aa4b2;--glass: rgba(255,255,255,0.04)}
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;font-family:Inter, system-ui, -apple-system, 'Helvetica Neue', Arial; background:linear-gradient(180deg,#071021 0%, #0b1220 100%);color:#e6eef6;-webkit-font-smoothing:antialiased}
+    .container{max-width:980px;margin:32px auto;padding:20px}
+    header{display:flex;gap:16px;align-items:center}
+    .logo{width:56px;height:56px;border-radius:12px;display:inline-grid;place-items:center;background:linear-gradient(135deg,var(--accent),#2dd4bf);color:#012; font-weight:700}
+    h1{font-size:20px;margin:0}
+    p.lead{color:var(--muted);margin:8px 0 18px}
+    .grid{display:grid;grid-template-columns:1fr;gap:18px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:12px;padding:18px;box-shadow:0 6px 18px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.03)}
+    .two{display:grid;grid-template-columns:1fr 320px;gap:18px}
+    @media (max-width:800px){.two{grid-template-columns:1fr}.logo{width:48px;height:48px}}
+    .muted{color:var(--muted);font-size:14px}
+    .faq dt{cursor:pointer;padding:12px 8px;border-radius:8px}
+    .faq dd{margin:0;padding:0 8px 12px 8px;color:var(--muted);display:none}
+    .faq dt[aria-expanded="true"]{background:var(--glass)}
+    .actions{display:flex;gap:10px;flex-wrap:wrap}
+    .btn{background:var(--accent);color:#022;padding:10px 14px;border-radius:10px;border:0;font-weight:600;cursor:pointer}
+    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:#dbeafe}
+    form input, form textarea{width:100%;Padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;margin-top:8px}
+    footer{margin-top:18px;color:var(--muted);font-size:13px;text-align:center}
+    .meta{font-size:13px;color:var(--muted);margin-top:8px}
+    .inline{display:flex;gap:8px;align-items:center}
+  </style>
 </head>
 <body>
-  <h1>MyTips Support</h1>
-  <p>For support, questions, or feedback:</p>
-  <p><strong>Email:</strong> hello@imritesh.com</p>
+  <div class="container">
+    <header>
+      <div class="logo" aria-hidden>
+        MT
+      </div>
+      <div>
+        <h1>MyTips — Support</h1>
+        <div class="lead">Quick help, FAQs, and direct contact for MyTips. Response within 48 hours.</div>
+      </div>
+    </header>
 
-  <h3>Frequently Asked Questions</h3>
-  <p><strong>Is my data backed up?</strong><br/>Your data is stored locally on your device.</p>
-  <p><strong>How do I restore Pro?</strong><br/>Use “Restore Purchase” inside the app.</p>
+    <main class="grid" role="main">
+      <section class="two">
+        <div class="card" aria-labelledby="help-now">
+          <h2 id="help-now">Get help now</h2>
+          <p class="muted">Choose a contact method below — include app version and a short description to help us respond faster.</p>
 
-  <p>© MyTips</p>
+          <div class="actions" style="margin-top:12px">
+            <button class="btn" id="mailtoBtn">Email Support</button>
+            <button class="btn ghost" id="openFAQ">View FAQ</button>
+            <button class="btn ghost" id="restoreGuide">Restore Purchases</button>
+          </div>
+
+          <div class="meta" style="margin-top:12px">Support email: <a href="mailto:hello@imritesh.com" style="color:var(--accent)">hello@imritesh.com</a></div>
+          <div class="meta">Privacy: <a href="/privacy.html" style="color:var(--accent)">Privacy Policy</a></div>
+
+        </div>
+
+        <aside class="card" aria-label="Quick actions">
+          <h3 style="margin:0 0 8px 0">Quick actions</h3>
+          <div class="muted">App troubleshooting checklist</div>
+          <ol class="muted" style="padding-left:18px;margin-top:10px">
+            <li>Update to latest iOS and MyTips version</li>
+            <li>Restart the device</li>
+            <li>Check Settings → MyTips → Notifications & Permissions</li>
+            <li>Use Restore Purchases in app if Pro features missing</li>
+          </ol>
+          <div style="margin-top:12px">
+            <button class="btn ghost" id="openSupportForm">Send us a message</button>
+          </div>
+        </aside>
+      </section>
+
+      <section class="card" id="faqSection">
+        <h2>Frequently Asked Questions</h2>
+        <dl class="faq" role="list">
+          <dt tabindex="0" role="button" aria-expanded="false">Is my data backed up?</dt>
+          <dd>Your data is stored locally on your device and can be exported from Settings → Export. We do not store personal content on our servers by default.</dd>
+
+          <dt tabindex="0" role="button" aria-expanded="false">How do I restore Pro?</dt>
+          <dd>Open the app, go to Settings → Restore Purchases. If that doesn't work, contact us with your Apple receipt and we'll help.</dd>
+
+          <dt tabindex="0" role="button" aria-expanded="false">How long to get a response?</dt>
+          <dd>We aim to reply within 48 hours. For urgent billing issues include your receipt and Apple Order ID.</dd>
+        </dl>
+      </section>
+
+      <section class="card" id="contactCard">
+        <h2 id="contactTitle">Contact Support</h2>
+        <p class="muted">Fill the short form below and we'll open an email draft with details — no server required.</p>
+        <form id="contactForm" aria-labelledby="contactTitle">
+          <label for="name">Name (optional)</label>
+          <input id="name" name="name" placeholder="Your name" />
+
+          <label for="email">Your email</label>
+          <input id="email" name="email" placeholder="you@example.com" type="email" required />
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="4" placeholder="Describe the issue, steps to reproduce, expected vs actual" required></textarea>
+
+          <div style="display:flex;gap:8px;margin-top:10px">
+            <button class="btn" type="submit">Send Email</button>
+          </div>
+        </form>
+
+        <div class="muted" style="margin-top:10px">Tip: include screenshots and the app version to speed support.</div>
+      </section>
+
+      <footer>
+        © MyTips — <span id="appVersion">App version: unknown</span>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    // Insert detected app version if provided via query `?v=1.2.3`
+    const params = new URLSearchParams(location.search);
+    const version = params.get('v') || 'unknown';
+    document.getElementById('appVersion').textContent = 'App version: ' + version;
+
+    // FAQ toggle
+    document.querySelectorAll('.faq dt').forEach(dt=>{
+      dt.addEventListener('click', ()=> toggleFAQ(dt));
+      dt.addEventListener('keydown', e=>{ if(e.key==='Enter' || e.key===' ') { e.preventDefault(); toggleFAQ(dt); } });
+    });
+    function toggleFAQ(dt){
+      const expanded = dt.getAttribute('aria-expanded') === 'true';
+      dt.setAttribute('aria-expanded', String(!expanded));
+      const dd = dt.nextElementSibling; if(dd) dd.style.display = expanded ? 'none' : 'block';
+    }
+
+    // Mailto builder
+    function buildMailto(to, subject, body){
+      return `mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    }
+
+    const email = 'hello@imritesh.com';
+    document.getElementById('mailtoBtn').addEventListener('click', ()=>{
+      const subject = `Support request — MyTips ${version}`;
+      const body = `Device: ${navigator.userAgent}\nApp version: ${version}\n\nDescribe your issue here:`;
+      location.href = buildMailto(email, subject, body);
+    });
+
+    document.getElementById('contactForm').addEventListener('submit', e=>{
+      e.preventDefault();
+      const form = e.target;
+      const subject = `Support from ${form.name.value || 'User'} — MyTips ${version}`;
+      const body = `Device: ${navigator.userAgent}\nApp version: ${version}\nEmail: ${form.email.value}\n\n${form.message.value}`;
+      location.href = buildMailto(email, subject, body);
+    });
+
+    document.getElementById('copyDebug').addEventListener('click', ()=>{
+      const txt = `Device: ${navigator.userAgent}\nApp version: ${version}`;
+      navigator.clipboard.writeText(txt).then(()=>alert('Device info copied'));
+    });
+
+    document.getElementById('openFAQ').addEventListener('click', ()=>{
+      document.getElementById('faqSection').scrollIntoView({behavior:'smooth'});
+    });
+
+    document.getElementById('restoreGuide').addEventListener('click', ()=>{
+      alert('Restore Purchases: Open MyTips → Settings → Restore Purchases. If that fails, contact support.');
+    });
+
+    document.getElementById('openSupportForm').addEventListener('click', ()=>{
+      document.getElementById('contactForm').scrollIntoView({behavior:'smooth'});
+    });
+  </script>
 </body>
 </html>
